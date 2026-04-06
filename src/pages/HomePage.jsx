@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../App.css'
 import { Button, Card } from 'react-bootstrap'
+import { CardCard } from './CardCard'
 
 export default function HomePage() {
   const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ export default function HomePage() {
         <Card.Body className='text-center'>
           <h1>Card Collector's Collective</h1>
           <Button onClick={() => setCount(o => o + 1)}>Count: {count}</Button>
+          <Card></Card>
         </Card.Body>
       </Card>
     </div>
