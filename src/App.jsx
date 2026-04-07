@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import Layout from './components/Layout.jsx'
+import AddGamePage from './pages/AddGamePage.jsx'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
+        <Route path="add" element={<AddGamePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
