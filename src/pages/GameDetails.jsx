@@ -12,9 +12,9 @@ export default function GameDetail() {
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
       <h1>{game.name}</h1>
-      <img 
-        src={`/p4/images/${game.img}`} 
-        alt={game.name} 
+      <img
+        src={`/p4/images/${game.img}`}
+        alt={game.name}
         style={{ width: "300px", height: "300px", objectFit: "cover", marginBottom: "20px" }}
       />
       <p>Number of Players: {game.num_players}</p>
