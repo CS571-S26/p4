@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Card, Form, Button } from 'react-bootstrap'
 import '../App.css'
 
-export default function AddGamePage() {
+export default function FavoritesPage() {
     const [instructions, setInstructions] = useState('')
     const preventNegativeNumberInput = (event) => {
         if (['-', '+', 'e', 'E', '.'].includes(event.key)) {
