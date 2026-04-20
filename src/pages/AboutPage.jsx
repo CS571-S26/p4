@@ -111,12 +111,6 @@ export default function AboutPage() {
                 <Card.Title style={{ fontSize: 15 }}>{card.title}</Card.Title>
                 <Card.Text className="text-muted" style={{ fontSize: 13 }}>{card.sub}</Card.Text>
               </Card.Body>
-              {/* <img
-                src={card.img}
-                alt={card.title}
-                draggable="false"
-                style={{ width: "100%", height: "80%", objectFit: "cover", display: "block" }}
-              /> */}
             </Card>
 
           );
