@@ -20,6 +20,14 @@ export default function GameDetail() {
       <p>Number of Players: {game.num_players}</p>
       <p>Estimated Playtime: {game.playtime}</p>
       <p>Difficulty: {game.difficulty}</p>
+      <div style={{ whiteSpace: "pre-line", textAlign: "left", maxWidth: "600px", margin: "0 auto" }}>
+        <h3>Setup </h3>
+        <p>{game.setup}</p>
+      </div>
+      <div style={{ whiteSpace: "pre-line", textAlign: "left", maxWidth: "600px", margin: "0 auto" }}>
+        <h3>How to Play: </h3>
+        <p>{game.description}</p>
+      </div>
     </div>
   );
 }
