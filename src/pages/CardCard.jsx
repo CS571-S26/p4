@@ -22,9 +22,10 @@ export default function CardCard(props) {
     e.stopPropagation();
     const favs = JSON.parse(localStorage.getItem("favorites")) || [];
     let newFavs;
-    if (favs.includes(props.id)) {
-      newFavs = favs.filter(id => id !== props.id);
-    } else {
+    if(favs.includes(props.id)) {
+      newFavs = favs.filter((id) => id !== props.id);
+    } 
+    else {
       newFavs = [...favs, props.id];
     }
     localStorage.setItem("favorites", JSON.stringify(newFavs));
