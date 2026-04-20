@@ -8,7 +8,7 @@ export default function Layout() {
       <Navbar bg="light" expand="md" className="border-bottom shadow-sm">
         <Container>
           <Navbar.Brand>Card Collector&apos;s Collective</Navbar.Brand>
-G          <Navbar.Toggle aria-controls="site-nav" />
+          <Navbar.Toggle aria-controls="site-nav" />
           <Navbar.Collapse id="site-nav">
             <Nav className="ms-auto">
               <Nav.Link as={NavLink} to="/" end>
