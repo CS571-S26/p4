@@ -5,7 +5,7 @@ import '../App.css'
 export default function Layout() {
   return (
     <div>
-      <Navbar bg="light" expand="md" className="border-bottom shadow-sm">
+      <Navbar expand="md" className="border-bottom shadow-sm">
         <Container>
           <Navbar.Brand>Card Collector&apos;s Collective</Navbar.Brand>
           <Navbar.Toggle aria-controls="site-nav" />

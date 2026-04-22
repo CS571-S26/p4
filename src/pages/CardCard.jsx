@@ -1,9 +1,12 @@
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function CardCard(props) {
   const navigate = useNavigate();
+  const bubbleTimeoutRef = useRef(null);
+  const [bubbleTick, setBubbleTick] = useState(0);
+  const [isBubbling, setIsBubbling] = useState(false);
   const [starred, setStarred] = useState(() => {
     const favs = JSON.parse(localStorage.getItem("favorites")) || [];
     return favs.includes(props.id);
@@ -14,22 +17,36 @@ export default function CardCard(props) {
       const favs = JSON.parse(localStorage.getItem("favorites")) || [];
       setStarred(favs.includes(props.id));
     };
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+      if (bubbleTimeoutRef.current) {
+        window.clearTimeout(bubbleTimeoutRef.current);
+      }
+    };
   }, [props.id]);
 
   const handleStarClick = (e) => {
     e.stopPropagation();
     const favs = JSON.parse(localStorage.getItem("favorites")) || [];
     let newFavs;
-    if(favs.includes(props.id)) {
+    if (favs.includes(props.id)) {
       newFavs = favs.filter((id) => id !== props.id);
-    } 
+    }
     else {
       newFavs = [...favs, props.id];
     }
     localStorage.setItem("favorites", JSON.stringify(newFavs));
     setStarred(!starred);
+    if (bubbleTimeoutRef.current) {
+      window.clearTimeout(bubbleTimeoutRef.current);
+    }
+    setBubbleTick((tick) => tick + 1);
+    setIsBubbling(true);
+    bubbleTimeoutRef.current = window.setTimeout(() => {
+      setIsBubbling(false);
+      bubbleTimeoutRef.current = null;
+    }, 500);
   };
 
   return (
@@ -46,18 +63,35 @@ export default function CardCard(props) {
         cursor: "pointer",
         position: "relative"
       }}>
-      <div
+      <button
+        type="button"
         onClick={handleStarClick}
+        className={`favorite-star-button ${starred ? "starred" : ""} ${isBubbling ? "bubbling" : ""}`}
+        aria-label={starred ? `Remove ${props.name} from favorites` : `Add ${props.name} to favorites`}
         style={{
-          position: "absolute",
-          bottom: "0px",
-          left: "5px",
-          fontSize: "45px",
-          cursor: "pointer",
-          userSelect: "none"
+          background: "transparent",
+          boxShadow: "none",
+          width: "auto",
+          height: "auto",
+          padding: 0
         }}>
-        {starred ? "★" : "☆"}
-      </div>
+        <span key={bubbleTick}>
+          <span
+            className="favorite-star-glyph"
+            aria-hidden="true"
+            style={{
+              fontSize: "2.8rem",
+              color:"#ff6b6b",
+            }}>
+            {starred ? "★" : "☆"}
+          </span>
+          <span className="favorite-star-bubble" aria-hidden="true"></span>
+          <span className="favorite-star-bubble" aria-hidden="true"></span>
+          <span className="favorite-star-bubble" aria-hidden="true"></span>
+          <span className="favorite-star-bubble" aria-hidden="true"></span>
+          <span className="favorite-star-bubble" aria-hidden="true"></span>
+        </span>
+      </button>
 
       <Card.Img
         src={`/p4/images/${props.img}`}
