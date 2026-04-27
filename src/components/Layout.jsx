@@ -23,6 +23,9 @@ export default function Layout() {
               <Nav.Link as={NavLink} to="/add">
                 Suggest a game
               </Nav.Link>
+              <Nav.Link as={NavLink} to="/cards">
+                Fun Cards
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
