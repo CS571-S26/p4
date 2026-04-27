@@ -1,5 +1,5 @@
 import cardGames from "../data/cardGames";
-import CardCard from "./CardCard";
+import CardCard from "../components/CardCard";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 import GameSearchBar from "../components/GameSearchBar";

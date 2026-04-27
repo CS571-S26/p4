@@ -1,5 +1,5 @@
 import cardGames from "../data/cardGames";
-import CardCard from "./CardCard";
+import CardCard from "../components/CardCard";
 import { Container, Button } from "react-bootstrap";
 import { useState } from "react";
 
@@ -64,7 +64,7 @@ export default function RCGPage() {
       >
         {getButtonText()}
       </Button>
-      
+
       <div
         className="flip-scene"
         aria-live="polite"
