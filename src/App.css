@@ -71,6 +71,31 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.2);
 }
 
+.game-search-panel {
+  border-style: dashed;
+}
+
+.search-input-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.search-input-row .form-control {
+  max-width: 220px;
+}
+
+@media (max-width: 768px) {
+  .search-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-row .form-control {
+    max-width: none;
+  }
+}
+
 .instructions-input {
   min-height: 12rem;
   resize: vertical;
