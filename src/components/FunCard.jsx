@@ -1,34 +1,27 @@
 import { Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function FunCard(props) {
+  return (
+    <Card
+      as={Link}
+      to={props.link || "#"}
+      className="text-decoration-none text-dark"
+      style={{
+        width: "300px",
+        height: "425px",
+      }}
+      aria-label={`View ${props.name}`}
+    >
+      <Card.Img
+        src={new URL(`../assets/${props.img}`, import.meta.url).href}
+        alt={props.name}
+      />
 
-    return (
-        <Card
-            // onClick={() => navigate(`/game/${props.id}`, { state: { game: props } })}
-            style={{
-                width: "300px",
-                height: "425px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                padding: "10px",
-                margin: "15px",
-                cursor: "pointer",
-                position: "relative"
-            }}>
-
-            <Card.Img
-                src={new URL(`../assets/${props.img}`, import.meta.url).href}
-                alt={props.name}
-                style={{ width: "250px", height: "250px", objectFit: "cover" }}
-            />
-
-            <h5>{props.name}</h5>
-            <p style={{ margin: "2px 0", lineHeight: 1.2 }}>
-                {props.description}
-            </p>
-        </Card>
-    );
+      <Card.Body>
+        <h5>{props.name}</h5>
+        <p>{props.description}</p>
+      </Card.Body>
+    </Card>
+  );
 }

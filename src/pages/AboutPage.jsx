@@ -1,6 +1,6 @@
 import '../App.css'
 import { useState, useRef } from "react";
-import { Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap';
 
 import lindy_img from "../assets/lindy_sk_1.png";
 import yanna_img from "../assets/yanna_sk.png";
@@ -11,6 +11,7 @@ const CARDS = [
   { title: "yanna", sub: "[bio]", img: yanna_img },
   { title: "arya", sub: "[bio]", img: arya_img },
 ];
+
 export default function AboutPage() {
   const [cards, setCards] = useState(CARDS);
   const dragState = useRef({ startX: 0, curX: 0, dragging: false });
@@ -19,10 +20,13 @@ export default function AboutPage() {
   const dismiss = (dir) => {
     const el = topRef.current;
     if (!el) return;
+
     const tx = dir === "right" ? 600 : -600;
+
     el.style.transition = "transform 0.4s ease, opacity 0.4s ease";
     el.style.transform = `translate(${tx}px, 0) rotate(${dir === "right" ? 20 : -20}deg)`;
     el.style.opacity = "0";
+
     setTimeout(() => {
       setCards((prev) => [...prev.slice(1), prev[0]]);
       if (topRef.current) {
@@ -34,88 +38,143 @@ export default function AboutPage() {
 
   const onPointerDown = (e) => {
     dragState.current = { startX: e.clientX, curX: 0, dragging: true };
-    topRef.current.style.transition = "none";
+    if (topRef.current) topRef.current.style.transition = "none";
   };
 
   const onPointerMove = (e) => {
-    if (!dragState.current.dragging) return;
+    if (!dragState.current.dragging || !topRef.current) return;
+
     const dx = e.clientX - dragState.current.startX;
     dragState.current.curX = dx;
+
     const rot = dx * 0.06;
     topRef.current.style.transform = `translate(${dx}px, 0) rotate(${rot}deg)`;
   };
 
   const onPointerUp = () => {
     if (!dragState.current.dragging) return;
+
     dragState.current.dragging = false;
     const dx = dragState.current.curX;
+
     if (Math.abs(dx) > 90) {
       dismiss(dx > 0 ? "right" : "left");
     } else {
-      topRef.current.style.transition = "transform 0.4s cubic-bezier(.175,.885,.32,1.275)";
+      topRef.current.style.transition =
+        "transform 0.4s cubic-bezier(.175,.885,.32,1.275)";
       topRef.current.style.transform = "translate(0,0) rotate(0deg)";
     }
   };
+
   return (
     <>
+      {/* ABOUT TEXT SECTION */}
       <div className="w-100 h-100 d-flex justify-content-center align-items-center">
-        <Card className='m-4 p-2'>
-          <Card.Body className='text-center'>
-            <h2>About</h2>
-            <p>Whether you want to learn Go Fish or just need a
-              refresher on what exactly the trump suit in Euchre does, Card Collector's Collective has a resource.
-              This web application hosts all the descriptions, how-to-plays, and resources needed to play a wide variety of card games. Save your favorites and request a new one to be added!</p>
+        <Card className="m-4 p-2">
+          <Card.Body className="text-center">
+            <h1>About</h1>
+
+            <p>
+              Whether you want to learn Go Fish or just need a refresher on what
+              exactly the trump suit in Euchre does, Card Collector's Collective
+              has a resource. This web application hosts all the descriptions,
+              how-to-plays, and resources needed to play a wide variety of card games.
+              Save your favorites and request a new one to be added!
+            </p>
 
             <h2>Meet the Team</h2>
-            <p>We are three card-loving college students who became frustrated by the lack of one, central card game learning resource.
-              We hope C<sup>3</sup> will provide a convenient place for newcomers and veterans alike to learn and save their favorites!</p>
+
+            <p>
+              We are three card-loving college students who became frustrated by
+              the lack of one, central card game learning resource. We hope C<sup>3</sup>
+              will provide a convenient place for newcomers and veterans alike to learn
+              and save their favorites!
+            </p>
           </Card.Body>
         </Card>
       </div>
-      <Card
-        style={{ position: "relative", width: 280, height: 360, margin: "0 auto" }}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerLeave={onPointerUp}
-      >
-        {cards.slice(0, 4).map((card, i) => {
-          const isTop = i === 0;
-          const scale = 1 - i * 0.04;
-          const ty = i * 10;
-          return (
-            <Card
-              key={card.title}
-              ref={isTop ? topRef : null}
-              onPointerDown={isTop ? onPointerDown : undefined}
-              style={{
-                position: "absolute",
-                overflow: "hidden",
-                height: "100%",
-                width: "100%",
-                inset: 0,
-                transform: `translateY(${ty}px) scale(${scale})`,
-                transition: isTop ? "none" : "transform 0.3s ease",
-                zIndex: isTop ? 10 : 4 - i,
-                cursor: isTop ? "grab" : "default",
-                userSelect: "none",
-                touchAction: "none",
-              }}
-            >
-              <Card.Img
-                variant="top"
-                src={card.img}
-                draggable={false}
-                style={{ height: 500, objectFit: "contain", objectPosition: "center", pointerEvents: "none" }}
-              />
-              <Card.Body>
-                <Card.Title style={{ fontSize: 15 }}>{card.title}</Card.Title>
-                <Card.Text className="text-muted" style={{ fontSize: 13 }}>{card.sub}</Card.Text>
-              </Card.Body>
-            </Card>
 
-          );
-        })}
-      </Card>
+      {/* SWIPE CARDS SECTION */}
+      <div
+        role="region"
+        aria-label="Team profile cards"
+        className="d-flex justify-content-center"
+      >
+        <Card
+          style={{ position: "relative", width: 280, height: 360, margin: "0 auto" }}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerLeave={onPointerUp}
+        >
+          {cards.slice(0, 3).map((card, i) => {
+            const isTop = i === 0;
+            const scale = 1 - i * 0.04;
+            const ty = i * 10;
+
+            return (
+              <Card
+                key={card.title}
+                ref={isTop ? topRef : null}
+                tabIndex={isTop ? 0 : -1}
+                role={isTop ? "button" : undefined}
+                aria-label={isTop ? `Swipe card for ${card.title}` : undefined}
+
+                onKeyDown={
+                  isTop
+                    ? (e) => {
+                        if (e.key === "ArrowLeft") dismiss("left");
+                        if (e.key === "ArrowRight") dismiss("right");
+                      }
+                    : undefined
+                }
+
+                onPointerDown={isTop ? onPointerDown : undefined}
+                style={{
+                  position: "absolute",
+                  overflow: "hidden",
+                  height: "100%",
+                  width: "100%",
+                  inset: 0,
+                  transform: `translateY(${ty}px) scale(${scale})`,
+                  transition: isTop ? "none" : "transform 0.3s ease",
+                  zIndex: isTop ? 10 : 4 - i,
+                  cursor: isTop ? "grab" : "default",
+                  userSelect: "none",
+                  touchAction: "none",
+                }}
+              >
+                <Card.Img
+                  src={card.img}
+                  alt={`${card.title} profile illustration`}
+                  draggable={false}
+                  style={{
+                    height: 500,
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    pointerEvents: "none",
+                  }}
+                />
+
+                <Card.Body>
+                  <Card.Title style={{ fontSize: 15 }}>
+                    {card.title}
+                  </Card.Title>
+
+                  <Card.Text className="text-muted" style={{ fontSize: 13 }}>
+                    {card.sub}
+                  </Card.Text>
+
+                  {isTop && (
+                    <Card.Text className="text-muted" style={{ fontSize: 12 }}>
+                      Use arrow keys or swipe to cycle cards
+                    </Card.Text>
+                  )}
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </Card>
+      </div>
     </>
   );
 }

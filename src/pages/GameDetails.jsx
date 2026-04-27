@@ -14,7 +14,7 @@ export default function GameDetail() {
       <h1>{game.name}</h1>
       <img
         src={`/p4/images/${game.img}`}
-        alt={game.name}
+        alt={`Cover art/image for the card game ${game.name}`}
         style={{ width: "300px", height: "300px", objectFit: "cover", marginBottom: "20px" }}
       />
       <p>Number of Players: {game.num_players}</p>

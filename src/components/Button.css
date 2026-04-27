@@ -1,15 +1,15 @@
 .dark-red-button {
-  background-color: #8B0000;  /* dark red */
-  color: #FFFFFF;             /* red text */
+  background-color: #8B0000;
+  color: #FFFFFF;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;  /* smooth hover transition */
+  transition: all 0.3s ease;
 }
 
 .dark-red-button:hover {
-  background-color: #000000;  /* black on hover */
-  color: #FFFFFF;             /* white text on hover */
+  background-color: #000000;
+  color: #FFFFFF;
 }

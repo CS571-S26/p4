@@ -95,7 +95,7 @@ export default function CardCard(props) {
 
       <Card.Img
         src={`/p4/images/${props.img}`}
-        alt={props.name}
+        alt={`Cover art/image for the card game ${props.name}`}
         style={{ width: "250px", height: "250px", objectFit: "cover" }}
       />
 

@@ -1,13 +1,13 @@
 :root {
   --bg-start: #fff4d6;
   --bg-end: #ffd6e7;
-  --surface: #ffffffcc;
+  --surface: #ffffff;
   --surface-strong: #fffaf2;
   --primary: #ff6b6b;
   --secondary: #4d96ff;
   --accent: #ffd93d;
   --success: #6bcb77;
-  --text: #2d3047;
+  --text: #1f2233;
   --muted-border: #f4b6c2;
 }
 
@@ -41,8 +41,9 @@ body {
   background-color: var(--surface);
   border: 2px solid var(--muted-border);
   border-radius: 1rem;
-  box-shadow: 0 12px 30px rgba(77, 150, 255, 0.15);
-  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 30px rgba(77, 150, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .add-game-card {
@@ -110,6 +111,12 @@ body {
   white-space: pre-wrap;
 }
 
+.text-muted {
+  color: #4a4f66 !important;
+}
+
+/* ===== STAR BUTTON ===== */
+
 .favorite-star-button {
   position: absolute;
   bottom: 10px;
@@ -122,7 +129,6 @@ body {
   border: 0;
   border-radius: 999px;
   background: radial-gradient(circle at top, #ff6b6b, #ff6b6b 65%, #ff6b6b);
-  /* box-shadow: 0 8px 18px rgba(255, 179, 0, 0.32); */
   color: #fff9ef;
   cursor: pointer;
   user-select: none;
@@ -132,7 +138,6 @@ body {
 
 .favorite-star-button:hover {
   transform: translateY(-2px) scale(1.03);
-  /* box-shadow: 0 12px 22px rgba(255, 179, 0, 0.38); */
 }
 
 .favorite-star-button:active {
@@ -140,7 +145,7 @@ body {
 }
 
 .favorite-star-button:focus-visible {
-  outline: 3px solid rgba(77, 150, 255, 0.45);
+  outline: 3px solid #1f6fff;
   outline-offset: 3px;
 }
 
@@ -153,7 +158,6 @@ body {
   z-index: 2;
   font-size: 2rem;
   line-height: 1;
-  /* text-shadow: 0 2px 6px rgba(255, 132, 0, 0.28); */
   transition: transform 180ms ease;
 }
 
@@ -208,21 +212,10 @@ body {
 }
 
 @keyframes favorite-star-pop {
-  0% {
-    transform: scale(0.88);
-  }
-
-  35% {
-    transform: scale(1.25) rotate(-10deg);
-  }
-
-  70% {
-    transform: scale(0.96) rotate(6deg);
-  }
-
-  100% {
-    transform: scale(1) rotate(0deg);
-  }
+  0% { transform: scale(0.88); }
+  35% { transform: scale(1.25) rotate(-10deg); }
+  70% { transform: scale(0.96) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 
 @keyframes favorite-star-burst {
@@ -230,14 +223,15 @@ body {
     opacity: 0.95;
     transform: translate(-50%, -50%) scale(0.35);
   }
-
   80% {
     opacity: 0.85;
   }
-
   100% {
     opacity: 0;
-    transform: translate(calc(-50% + var(--bubble-x)), calc(-50% + var(--bubble-y))) scale(1.4);
+    transform: translate(
+      calc(-50% + var(--bubble-x)),
+      calc(-50% + var(--bubble-y))
+    ) scale(1.4);
   }
 }
 
@@ -273,7 +267,7 @@ body {
   align-items: center;
 }
 
-/* ===== FRONT (CARD BACK DESIGN) ===== */
+/* FRONT */
 
 .flip-front {
   background: linear-gradient(135deg, #1b1b1b, #2d2d2d);
@@ -304,7 +298,6 @@ body {
   width: 100%;
   margin: 10px 0;
   border-radius: 8px;
-
   background-image:
     radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 11%),
     radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 11%);
@@ -313,14 +306,13 @@ body {
   opacity: 0.6;
 }
 
-/* decorative star */
 .card-back-design::after {
   content: "★";
   font-size: 1.5rem;
   opacity: 0.5;
 }
 
-/* ===== BACK (REAL CARD) ===== */
+/* BACK */
 
 .flip-back {
   transform: rotateY(180deg);
