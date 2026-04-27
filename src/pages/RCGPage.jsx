@@ -37,7 +37,7 @@ export default function RCGPage() {
             <h1 className="mb-1">Random Card Generator</h1>
 
             <p className="text-muted mb-3">
-                Want a fun game for everyone to play?
+                Want to find a fun game for everyone to play?
             </p>
             <Button
                 variant={phase === "show" ? "light" : "dark"}

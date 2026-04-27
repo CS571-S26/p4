@@ -62,8 +62,31 @@ const cardGames = [
     playtime: "20-30 mins",
     difficulty: "medium",
     favorite: false,
-    setup: "1. Use a standard 52-card deck but remove all cards 2 through 8 (only 9, 10, J, Q, K, A are used).\n2. Shuffle the 24-card deck.\n3. Deal 5 cards to each player, in sets (e.g., 2-3-2 or 3-2-3).\n4. Place the remaining 4 cards face-down as the 'kitty,' flipping the top card face-up to start the trump suit selection.\n",
-    description: "1. Players decide the trump suit starting with the player left of the dealer, who can 'order it up' or pass.\n2. If all players pass, a second round allows players to choose a different trump suit.\n3. The player who chooses trump becomes the 'maker' and plays with their partner.\n4. Players take turns playing one card each, following suit if possible.\n5. The highest card of the lead suit wins the trick, unless a trump card is played (trump beats all other suits).\n6. The team that wins the most tricks (out of 5) scores points.\n7. First team to reach 10 points wins the game."
+    setup:
+      "1. Use a standard 24-card deck (remove 2 through 8; only 9, 10, J, Q, K, A are used).\n" +
+      "2. Shuffle the deck thoroughly.\n" +
+      "3. Deal 5 cards to each player (4 players total, two teams of two).\n" +
+      "4. Place the remaining 4 cards face-down as the 'kitty.'\n" +
+      "5. Flip the top card of the kitty face-up to help determine trump.\n" +
+      "6. Jacks are special:\n" +
+      "   - Right Bower: Jack of the trump suit (highest card)\n" +
+      "   - Left Bower: Jack of the same color but different suit (second highest)\n" +
+      "   - Example: If Hearts are trump, Jack of Hearts is highest, Jack of Diamonds is second highest.\n",
+    description:
+      "1. Players decide whether to 'order up' the flipped card or pass.\n" +
+      "2. If all players pass, a second round allows choosing a different trump suit.\n" +
+      "3. The player who chooses trump becomes the 'maker' and leads the first trick.\n" +
+      "4. Players must follow suit if possible.\n" +
+      "5. If unable to follow suit, players may play any card, including trump.\n" +
+      "6. Card ranking:\n" +
+      "   - Non-trump: A > K > Q > J > 10 > 9\n" +
+      "   - Trump: Right Bower > Left Bower > A > K > Q > 10 > 9\n" +
+      "7. The highest trump card wins a trick if any are played.\n" +
+      "8. If no trump is played, the highest card of the led suit wins.\n" +
+      "9. The winning team of each trick leads the next trick.\n" +
+      "10. First team to win 3 of 5 tricks scores points.\n" +
+      "11. If the maker's team fails to win at least 3 tricks, they are 'euchred' and the opposing team scores.\n" +
+      "12. First team to reach 10 points wins the game."
   },
   {
     id: 9,
