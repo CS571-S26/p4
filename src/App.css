@@ -240,3 +240,7 @@ body {
     transform: translate(calc(-50% + var(--bubble-x)), calc(-50% + var(--bubble-y))) scale(1.4);
   }
 }
+
+.card-title {
+  padding: 20px;
+}
