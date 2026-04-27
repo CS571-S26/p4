@@ -21,7 +21,7 @@ export default function Layout() {
                 About
               </Nav.Link>
               <Nav.Link as={NavLink} to="/add">
-                Add a game
+                Suggest a game
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

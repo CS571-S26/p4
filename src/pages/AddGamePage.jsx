@@ -30,7 +30,7 @@ export default function AddGamePage() {
             })
 
             alert("Game submitted!")
-            
+
             // clear input boxes
             setName('')
             setPlayers('')
@@ -46,7 +46,7 @@ export default function AddGamePage() {
         <div className="w-100 h-100 d-flex justify-content-center align-items-center">
             <Card className="m-4 p-2 add-game-card">
                 <Card.Body>
-                    <h2 className="text-center">Add a Game</h2>
+                    <h2 className="text-center">Suggest a Game</h2>
 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
