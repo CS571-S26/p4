@@ -7,6 +7,8 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import Layout from './components/Layout.jsx'
 import AddGamePage from './pages/AddGamePage.jsx'
 import FavoritesPage from './pages/FavoritesPage.jsx'
+import FunCardsPage from './pages/FunCardsPage.jsx'
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         <Route path="/game/:id" element={<GameDetail />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="add" element={<AddGamePage />} />
+        <Route path="cards" element={<FunCardsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
