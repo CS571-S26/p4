@@ -46,6 +46,11 @@ body {
   -webkit-backdrop-filter: blur(8px);
 }
 
+.card:focus {
+  outline: 3px solid #4d90fe;
+  outline-offset: 4px;
+}
+
 .add-game-card {
   width: min(720px, 100%);
 }

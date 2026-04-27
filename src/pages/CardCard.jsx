@@ -50,19 +50,34 @@ export default function CardCard(props) {
   };
 
   return (
-    <Card
-      onClick={() => navigate(`/game/${props.id}`, { state: { game: props } })}
-      style={{
-        width: "300px",
-        height: "425px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "10px",
-        margin: "15px",
-        cursor: "pointer",
-        position: "relative"
-      }}>
+      <Card
+        tabIndex={0}
+        role="button"
+        onClick={() =>
+          navigate(`/game/${props.id}`, { state: { game: props } })
+        }
+        onKeyDown={(e) => {
+          const isStarButton = e.target.closest(".favorite-star-button");
+
+          if(isStarButton) return;
+
+          if(e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            navigate(`/game/${props.id}`, { state: { game: props } });
+          }
+        }}
+        style={{
+          width: "300px",
+          height: "425px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "10px",
+          margin: "15px",
+          cursor: "pointer",
+          position: "relative",
+        }}
+      >
       <button
         type="button"
         onClick={handleStarClick}
