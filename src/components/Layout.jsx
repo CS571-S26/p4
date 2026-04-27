@@ -17,6 +17,9 @@ export default function Layout() {
               <Nav.Link as={NavLink} to="/favorites">
                 Favorites
               </Nav.Link>
+              <Nav.Link as={NavLink} to="/rcg">
+                RCG
+              </Nav.Link>
               <Nav.Link as={NavLink} to="/about">
                 About
               </Nav.Link>
