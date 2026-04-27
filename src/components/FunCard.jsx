@@ -15,7 +15,7 @@ export default function FunCard(props) {
     >
       <Card.Img
         src={new URL(`../assets/${props.img}`, import.meta.url).href}
-        alt={props.name}
+        alt={`Cover image for the card game ${props.name}`}
       />
 
       <Card.Body>
