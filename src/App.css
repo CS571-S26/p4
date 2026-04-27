@@ -38,12 +38,43 @@ body {
 }
 
 .card {
+  width: 300px;
+  height: 415px;
   background-color: var(--surface);
   border: 2px solid var(--muted-border);
   border-radius: 1rem;
   box-shadow: 0 12px 30px rgba(77, 150, 255, 0.12);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+.fun-card {
+  width: 300px;
+  height: 425px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.fun-card-img {
+  height: 330px;
+  object-fit: contain;
+  padding: 0.6rem;
+}
+
+.fun-card-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+}
+
+.fun-card-body h5 {
+  margin-bottom: 0.5rem;
+}
+
+.fun-card-body p {
+  margin-bottom: 0;
+  word-break: break-word;
 }
 
 .card:focus {
@@ -217,10 +248,21 @@ body {
 }
 
 @keyframes favorite-star-pop {
-  0% { transform: scale(0.88); }
-  35% { transform: scale(1.25) rotate(-10deg); }
-  70% { transform: scale(0.96) rotate(6deg); }
-  100% { transform: scale(1) rotate(0deg); }
+  0% {
+    transform: scale(0.88);
+  }
+
+  35% {
+    transform: scale(1.25) rotate(-10deg);
+  }
+
+  70% {
+    transform: scale(0.96) rotate(6deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 @keyframes favorite-star-burst {
@@ -228,15 +270,15 @@ body {
     opacity: 0.95;
     transform: translate(-50%, -50%) scale(0.35);
   }
+
   80% {
     opacity: 0.85;
   }
+
   100% {
     opacity: 0;
-    transform: translate(
-      calc(-50% + var(--bubble-x)),
-      calc(-50% + var(--bubble-y))
-    ) scale(1.4);
+    transform: translate(calc(-50% + var(--bubble-x)),
+        calc(-50% + var(--bubble-y))) scale(1.4);
   }
 }
 
@@ -282,7 +324,7 @@ body {
 .card-back-design {
   width: 90%;
   height: 90%;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -304,8 +346,8 @@ body {
   margin: 10px 0;
   border-radius: 8px;
   background-image:
-    radial-gradient(circle, rgba(255,255,255,0.15) 10%, transparent 11%),
-    radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 11%);
+    radial-gradient(circle, rgba(255, 255, 255, 0.15) 10%, transparent 11%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 11%);
   background-size: 20px 20px;
   background-position: 0 0, 10px 10px;
   opacity: 0.6;
