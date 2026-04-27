@@ -53,7 +53,7 @@ export default function RCGPage() {
 
                     <div className="flip-face flip-front">
                         <div className="card-back-design">
-                            <div className="card-back-title">CARD DECK</div>
+                            <div className="card-back-title">C<sup>3</sup></div>
                             <div className="card-back-pattern"></div>
                         </div>
                     </div>
