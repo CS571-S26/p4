@@ -86,8 +86,7 @@ export default function AboutPage() {
 
             <p>
               We are three card-loving college students who became frustrated by
-              the lack of one, central card game learning resource. We hope C<sup>3</sup>
-              will provide a convenient place for newcomers and veterans alike to learn
+              the lack of one, central card game learning resource. We hope C<sup>3</sup> will provide a convenient place for newcomers and veterans alike to learn
               and save their favorites!
             </p>
           </Card.Body>
