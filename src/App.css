@@ -9,6 +9,8 @@
   --success: #6bcb77;
   --text: #1f2233;
   --muted-border: #f4b6c2;
+  --rcg-dark-start: #1b1b1b;
+  --rcg-dark-end: #2d2d2d;
 }
 
 body {
@@ -17,7 +19,7 @@ body {
 }
 
 .navbar {
-  background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+  background: linear-gradient(90deg, var(--rcg-dark-start), var(--rcg-dark-end)) !important;
 }
 
 .navbar .navbar-brand,
@@ -39,9 +41,9 @@ body {
 
 .card {
   background-color: var(--surface);
-  border: 2px solid var(--muted-border);
+  /* border: 2px solid var(--rcg-dark-start); */
   border-radius: 1rem;
-  box-shadow: 0 12px 30px rgba(77, 150, 255, 0.12);
+  /* box-shadow: 0 12px 30px rgba(77, 150, 255, 0.12); */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -66,13 +68,32 @@ body {
   overflow: auto;
 }
 
-.fun-card-body h5 {
+.fun-card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.fun-card-body p {
+.fun-card-body h5 {
   margin-bottom: 0;
+}
+
+.fun-card-body p {
+  margin-bottom: 0.75rem;
   word-break: break-word;
+}
+
+.fun-card-cart-button {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border-radius: 999px;
 }
 
 .card:focus {
@@ -315,7 +336,7 @@ body {
 /* FRONT */
 
 .flip-front {
-  background: linear-gradient(135deg, #1b1b1b, #2d2d2d);
+  background: linear-gradient(135deg, var(--rcg-dark-start), var(--rcg-dark-end));
   color: white;
 }
 

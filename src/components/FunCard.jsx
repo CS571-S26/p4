@@ -6,12 +6,14 @@ export default function FunCard(props) {
     <Card
       as={Link}
       to={props.link || "#"}
+      target="_blank"
+      rel="noopener noreferrer"
       className="fun-card text-decoration-none text-dark"
       aria-label={`View ${props.name}`}
     >
       <Card.Img
         className="fun-card-img"
-        src={new URL(`../assets/${props.img}`, import.meta.url).href}
+        src={`/p4/images/${props.img}`}
         alt={`Cover image for the card game ${props.name}`}
       />
 

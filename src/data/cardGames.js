@@ -2,7 +2,7 @@ const cardGames = [
   {
     id: 1,
     name: "President",
-    img: "ace_spades.jpg",
+    img: "president.png",
     num_players: "3+",
     playtime: "10-15 mins",
     difficulty: "easy",
@@ -13,7 +13,7 @@ const cardGames = [
   {
     id: 2,
     name: "War",
-    img: "ace_spades.jpg",
+    img: "war.png",
     num_players: "2",
     playtime: "10-20 mins",
     difficulty: "easy",
@@ -24,7 +24,7 @@ const cardGames = [
   {
     id: 3,
     name: "Go Fish",
-    img: "ace_spades.jpg",
+    img: "go_fish.png",
     num_players: "2-4",
     playtime: "10-15 mins",
     difficulty: "easy",
@@ -35,7 +35,7 @@ const cardGames = [
   {
     id: 4,
     name: "Crazy Eights",
-    img: "ace_spades.jpg",
+    img: "crazy_8s.png",
     num_players: "2-5",
     playtime: "10-20 mins",
     difficulty: "easy",
@@ -46,7 +46,7 @@ const cardGames = [
   {
     id: 7,
     name: "Speed",
-    img: "ace_spades.jpg",
+    img: "speed.png",
     num_players: "2",
     playtime: "5-10 mins",
     difficulty: "medium",
@@ -57,7 +57,7 @@ const cardGames = [
   {
     id: 8,
     name: "Euchre",
-    img: "ace_spades.jpg",
+    img: "euchre.png",
     num_players: "4",
     playtime: "20-30 mins",
     difficulty: "medium",
@@ -91,7 +91,7 @@ const cardGames = [
   {
     id: 9,
     name: "Old Maid",
-    img: "ace_spades.jpg",
+    img: "old_maid.png",
     num_players: "2+",
     playtime: "10-15 mins",
     difficulty: "easy",
@@ -102,7 +102,7 @@ const cardGames = [
   {
     id: 10,
     name: "Gin Rummy",
-    img: "ace_spades.jpg",
+    img: "gin_rummy.png",
     num_players: "2",
     playtime: "20-30 mins",
     difficulty: "medium",

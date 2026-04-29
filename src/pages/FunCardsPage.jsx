@@ -8,7 +8,7 @@ export default function FunCardsPage() {
         <div className="w-100 h-100 d-flex flex-column align-items-center">
             <div className="text-center my-4">
                 <h1 className="p-3">Fun Cards</h1>
-                <p>Here are some of our favorite playing cards and accessories to consider for your next fun card purchase!</p>
+                <p>Here are some of our favorite playing cards and accessories to consider for your next fun card purchase! Click on a card to learn more.</p>
             </div>
             <Container>
                 <Row id="cardGames" className="justify-content-center">
