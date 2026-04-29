@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import '../App.css'
 
@@ -7,7 +7,9 @@ export default function Layout() {
     <div>
       <Navbar expand="md" className="border-bottom shadow-sm">
         <Container>
-          <Navbar.Brand>Card Collector&apos;s Collective</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            Card Collector&apos;s Collective
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="site-nav" />
           <Navbar.Collapse id="site-nav">
             <Nav className="ms-auto">
