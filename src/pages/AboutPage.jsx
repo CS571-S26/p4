@@ -2,14 +2,10 @@ import '../App.css'
 import { useState, useRef } from "react";
 import { Card } from 'react-bootstrap';
 
-import lindy_img from "../assets/lindy_sk_1.png";
-import yanna_img from "../assets/yanna_sk.png";
-import arya_img from "../assets/arya-1.png";
-
 const CARDS = [
-  { title: "lindy", sub: "[bio]", img: lindy_img },
-  { title: "yanna", sub: "[bio]", img: yanna_img },
-  { title: "arya", sub: "[bio]", img: arya_img },
+  { title: "arya", img: `${import.meta.env.BASE_URL}images/arya_card.png` },
+  { title: "lindy", img: `${import.meta.env.BASE_URL}images/lindy_card.png` },
+  { title: "yanna", img: `${import.meta.env.BASE_URL}images/yanna_card.png` },
 ];
 
 export default function AboutPage() {
@@ -93,13 +89,13 @@ export default function AboutPage() {
         </Card>
       </div>
 
-      {/* SWIPE CARDS SECTION */}
+      {/* SWIPE IMAGES SECTION */}
       <div
         role="region"
-        aria-label="Team profile cards"
+        aria-label="Team profile images"
         className="d-flex justify-content-center"
       >
-        <Card
+        <div
           style={{ position: "relative", width: 280, height: 360, margin: "0 auto" }}
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
@@ -111,68 +107,45 @@ export default function AboutPage() {
             const ty = i * 10;
 
             return (
-              <Card
+              <img
                 key={card.title}
                 ref={isTop ? topRef : null}
+                src={card.img}
+                alt={`${card.title} profile`}
+                draggable={false}
                 tabIndex={isTop ? 0 : -1}
                 role={isTop ? "button" : undefined}
-                aria-label={isTop ? `Swipe card for ${card.title}` : undefined}
+                aria-label={isTop ? `Swipe profile image for ${card.title}` : undefined}
 
                 onKeyDown={
                   isTop
                     ? (e) => {
-                        if (e.key === "ArrowLeft") dismiss("left");
-                        if (e.key === "ArrowRight") dismiss("right");
-                      }
+                      if (e.key === "ArrowLeft") dismiss("left");
+                      if (e.key === "ArrowRight") dismiss("right");
+                    }
                     : undefined
                 }
 
                 onPointerDown={isTop ? onPointerDown : undefined}
                 style={{
                   position: "absolute",
-                  overflow: "hidden",
                   height: "100%",
                   width: "100%",
                   inset: 0,
+                  objectFit: "contain",
+                  objectPosition: "center",
                   transform: `translateY(${ty}px) scale(${scale})`,
                   transition: isTop ? "none" : "transform 0.3s ease",
                   zIndex: isTop ? 10 : 4 - i,
                   cursor: isTop ? "grab" : "default",
                   userSelect: "none",
                   touchAction: "none",
+                  pointerEvents: isTop ? "auto" : "none",
                 }}
-              >
-                <Card.Img
-                  src={card.img}
-                  alt={`${card.title} profile illustration`}
-                  draggable={false}
-                  style={{
-                    height: 500,
-                    objectFit: "contain",
-                    objectPosition: "center",
-                    pointerEvents: "none",
-                  }}
-                />
-
-                <Card.Body>
-                  <Card.Title style={{ fontSize: 15 }}>
-                    {card.title}
-                  </Card.Title>
-
-                  <Card.Text className="text-muted" style={{ fontSize: 13 }}>
-                    {card.sub}
-                  </Card.Text>
-
-                  {isTop && (
-                    <Card.Text className="text-muted" style={{ fontSize: 12 }}>
-                      Use arrow keys or swipe to cycle cards
-                    </Card.Text>
-                  )}
-                </Card.Body>
-              </Card>
+              />
             );
           })}
-        </Card>
+        </div>
       </div>
     </>
   );
