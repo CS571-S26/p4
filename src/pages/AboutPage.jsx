@@ -111,7 +111,7 @@ export default function AboutPage() {
                 key={card.title}
                 ref={isTop ? topRef : null}
                 src={card.img}
-                alt={`${card.title} profile`}
+                alt={`${card.title}'s profile image in a cute cartoon illustration style.`}
                 draggable={false}
                 tabIndex={isTop ? 0 : -1}
                 role={isTop ? "button" : undefined}

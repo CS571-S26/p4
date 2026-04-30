@@ -14,7 +14,7 @@ export default function FunCard(props) {
       <Card.Img
         className="fun-card-img"
         src={`/p4/images/${props.img}`}
-        alt={`Cover image for the card game ${props.name}`}
+        alt={`Cover image for playing cards with the theme of ${props.name}`}
       />
 
       <Card.Body className="fun-card-body">
