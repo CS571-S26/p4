@@ -113,7 +113,7 @@ const cardGames = [
   {
     id: 11,
     name: "Cribbage",
-    img: "ace_spades.jpg",
+    img: "cribbage.png",
     num_players: "2-4",
     playtime: "20-40 mins",
     difficulty: "medium",
@@ -142,7 +142,69 @@ const cardGames = [
     favorite: false,
     setup: "1. Use a standard 52-card deck.\n2. Deal all 13 cards to each of the 4 players.\n3. Spades are always the trump suit.\n",
     description: "1. Each player declares how many tricks they expect to win (their 'call').\n2. Players take turns playing one card per trick.\n3. Players must follow suit if possible; otherwise they may play a trump (spade).\n4. The highest card of the lead suit wins unless a trump card is played.\n5. Players try to meet their declared number of tricks.\n6. After all 13 tricks, scores are calculated based on successful calls."
-  }
+  },
+  {
+  id: 14,
+  name: "Egyptian Rat Screw",
+  img: "ace_spades.jpg",
+  num_players: "2+",
+  playtime: "10-20 mins",
+  difficulty: "medium",
+  favorite: false,
+  setup:
+    "1. Shuffle a standard 52-card deck.\n" +
+    "2. Deal all cards evenly face-down to all players.\n",
+
+  description:
+    "1. Players take turns placing the top card of their deck face-up into a central pile.\n" +
+    "2. Players may slap the pile when certain patterns appear:\n" +
+    "   - Doubles: two cards of the same rank in a row.\n" +
+    "   - Sandwich: two cards of the same rank with one card between them.\n" +
+    "   - Tens: any combination of cards that add up to 10.\n" +
+    "   - Face card sequence (see below).\n" +
+    "3. Face card rules:\n" +
+    "   - When a Jack is played, the next player gets 1 chance to respond with another face card.\n" +
+    "   - When a Queen is played, the next player gets 2 chances.\n" +
+    "   - When a King is played, the next player gets 3 chances.\n" +
+    "   - When an Ace is played, the next player gets 4 chances.\n" +
+    "   - If a player successfully plays a face card during the sequence, the challenge passes to the next player.\n" +
+    "   - If a player fails to play a face card within their allowed chances, the last player who played a face card wins the pile.\n" +
+    "4. The first player to correctly slap a valid pattern takes the entire pile.\n" +
+    "5. Incorrect slaps result in penalty cards given to the pile or opponents (house rules may vary).\n" +
+    "6. Players who run out of cards may still re-enter the game by successfully slapping a valid pile.\n" +
+    "7. The game continues until one player collects all the cards.\n"
+},
+{
+  id: 15,
+  name: "Pounce",
+  img: "ace_spades.jpg",
+  num_players: "4+",
+  playtime: "10-30 mins",
+  difficulty: "hard",
+  favorite: false,
+
+  setup:
+    "1. Each player uses their own standard 52-card deck (all decks must be visually distinguishable).\n" +
+    "2. Each player creates a Pounce Pile: deal 13 cards (12 face-down, 1 face-up on top).\n" +
+    "3. To the right of the Pounce Pile, each player creates a Tray of 4 face-up cards.\n" +
+    "4. Place a shared center area where foundation piles will be built.\n" +
+    "5. Assign a scorekeeper.\n",
+
+  description:
+    "1. All players start simultaneously when someone says 'Go'.\n" +
+    "2. The goal is to empty your Pounce Pile as fast as possible.\n" +
+    "3. Center piles are built collectively in suit from Ace to King.\n" +
+    "4. Any player may immediately play an Ace to start a center pile.\n" +
+    "5. Cards in the Tray are built solitaire-style in descending order (King to 2), alternating colors.\n" +
+    "6. Only the TOP card of each Tray stack may be played.\n" +
+    "7. When a card is moved from the Pounce Pile or Tray, the next Pounce Pile card is flipped face-up.\n" +
+    "8. Players continuously cycle through their Pounce Pile ONE card at a time.\n" +
+    "9. Players may also turn over cards from the remaining deck in GROUPS OF THREE and play any usable cards.\n" +
+    "10. Cards may be played onto center piles if they follow suit and sequence (A→K).\n" +
+    "11. Multiple players may play the same valid card simultaneously; fastest placement wins.\n" +
+    "12. Players cannot move cards back into their Pounce Pile.\n" +
+    "13. The first player to empty their entire Pounce Pile shouts 'Pounce' and ends the round.\n"
+}
 ];
 
 export default cardGames;

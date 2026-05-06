@@ -96,7 +96,6 @@ export default function CardCard(props) {
             aria-hidden="true"
             style={{
               fontSize: "2.8rem",
-              color:"#ff6b6b",
             }}>
             {starred ? "★" : "☆"}
           </span>

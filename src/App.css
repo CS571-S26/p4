@@ -1,6 +1,6 @@
 :root {
-  --bg-start: #fff4d6;
-  --bg-end: #ffd6e7;
+  --bg-start: #F0E2CF;
+  --bg-end: #F0E2CF;
   --surface: #ffffff;
   --surface-strong: #fffaf2;
   --primary: #ff6b6b;
@@ -210,6 +210,7 @@ body {
 
 .favorite-star-glyph {
   position: relative;
+  color: var(--rcg-dark-end);
   z-index: 2;
   font-size: 2rem;
   line-height: 1;
